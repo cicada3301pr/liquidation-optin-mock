@@ -132,7 +132,6 @@ button{font-family:inherit}
 <th scope="col" style="padding: 10px 8px; font-weight: 600">Inventory</th>
 <th scope="col" style="padding: 10px 8px; font-weight: 600">Discount %</th>
 <th scope="col" style="padding: 10px 8px; font-weight: 600">Refund Only</th>
-<th scope="col" style="padding: 10px 16px; font-weight: 600; text-align: right">Final settlement</th>
 </tr>
 </thead>
 <tbody>
@@ -164,12 +163,6 @@ button{font-family:inherit}
 <span style="font-size: 11px; color: #6B6B7B; max-width: 150px; line-height: 1.35">{{ r.rfNote }}</span>
 </div>
 </td>
-<td style="padding: 14px 16px; text-align: right">
-<div style="display: flex; flex-direction: column; gap: 2px; align-items: flex-end">
-<span style="font-size: 16px; font-weight: 700; color: {{ r.settleColor }}">{{ r.settleTotal }}</span>
-<span style="font-size: 12px; color: #6B6B7B">{{ r.settleUnit }}</span>
-</div>
-</td>
 </tr>
 </tbody>
 </table>
@@ -184,7 +177,6 @@ button{font-family:inherit}
 <button type="button" aria-label="Next page" disabled="{{ nextDisabled }}" onClick="{{ nextPage }}" style="width: 36px; height: 36px; border-radius: 6px; border: 1px solid #CFCFD8; background: #FFFFFF; color: #1F1F29; cursor: pointer">›</button>
 </div>
 </div>
-<p style="margin: 0; padding: 0 20px 16px; font-size: 11px; color: #6B6B7B; line-height: 1.5">Expected per unit = (buyer price − ₹{{ fwd }} shipping) × (1 − return rate). With Refund Only on, returned units are refunded and not shipped back; with it off, each return also costs ₹{{ rfCut }} to ship back. Final settlement = units × expected per unit. Shipping ₹{{ fwd }} forward and ₹{{ rev }} reverse are placeholders until Logistics confirms rates.</p>
 </div>
 </sc-if>
 
@@ -262,7 +254,6 @@ Select all {{ eligibleCount }} products
 </label>
 <div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap">
 <div style="display: flex; flex-direction: column"><span style="font-size: 12px; color: #6B6B7B">Units</span><span style="font-size: 16px; font-weight: 700">{{ selUnits }}</span></div>
-<div style="display: flex; flex-direction: column"><span style="font-size: 12px; color: #6B6B7B">Final settlement</span><span style="font-size: 16px; font-weight: 700">{{ selSettle }}</span></div>
 <button type="button" disabled="{{ enrolDisabled }}" style="height: 44px; padding: 0 24px; border-radius: 6px; border: 0; background: {{ enrolBg }}; color: #FFFFFF; font-size: 15px; font-weight: 700; cursor: pointer">{{ enrolLabel }}</button>
 </div>
 </div>
@@ -394,7 +385,7 @@ class Component extends DCLogic {
     const cut = rev - fwd;
     const inr = (n) => '₹' + Math.round(n).toLocaleString('en-IN');
     const PER = 10;
-    let selUnits = 0, selSettle = 0, selCount = 0, anyBad = false;
+    let selUnits = 0, selCount = 0, anyBad = false;
     const all = this.base.map((b) => {
       const s = this.state.rows[b.id];
       const disc = Number(s.disc);
@@ -404,12 +395,8 @@ class Component extends DCLogic {
       const buyer = Math.round(b.price * (1 - (discOk ? disc : 0) / 100));
       const auto = discOk && cut > buyer;
       const rfOn = auto || s.rf;
-      const r = b.ret / 100;
-      const net = Math.max(buyer - fwd, 0);
-      const perUnit = rfOn ? (1 - r) * net : Math.max((1 - r) * net - r * cut, 0);
-      const total = perUnit * inv;
       const ok = discOk && invOk;
-      if (s.sel) { selCount++; if (ok) { selUnits += inv; selSettle += total; } else { anyBad = true; } }
+      if (s.sel) { selCount++; if (ok) { selUnits += inv; } else { anyBad = true; } }
       let rfNote;
       if (!discOk) rfNote = 'Set a valid discount first';
       else if (auto) rfNote = 'On automatically: return shipping costs more than ₹' + buyer;
@@ -433,9 +420,6 @@ class Component extends DCLogic {
         rfJustify: rfOn ? 'flex-end' : 'flex-start',
         rfCursor: (auto || !discOk) ? 'not-allowed' : 'pointer',
         rfNote: rfNote,
-        settleTotal: ok ? inr(total) : '—',
-        settleUnit: ok ? inr(perUnit) + ' expected per unit' : 'Fix the row to see settlement',
-        settleColor: ok ? '#1F1F29' : '#8A8A99',
         toggleSel: () => this.upd(b.id, { sel: !s.sel }),
         setInv: (e) => this.upd(b.id, { inv: e.target.value }),
         setDisc: (e) => this.upd(b.id, { disc: e.target.value }),
@@ -526,7 +510,6 @@ class Component extends DCLogic {
       goOpt: () => this.setState({ tab: 'opt' }), goEnr: () => this.setState({ tab: 'enr' }),
       enrolled: enrolled,
       selUnits: selUnits.toLocaleString('en-IN'),
-      selSettle: inr(selSettle),
       enrolDisabled: selCount === 0 || anyBad,
       enrolBg: (selCount === 0 || anyBad) ? '#8A8A99' : '#3C29B7',
       enrolLabel: anyBad ? 'Fix highlighted rows' : (selCount === 0 ? 'Select products to enrol' : 'Enrol')
