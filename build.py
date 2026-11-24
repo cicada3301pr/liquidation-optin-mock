@@ -1,6 +1,6 @@
 """Build index.html (a standalone GitHub Pages site) from the Clear Dead Stock design file.
 
-usage: python3 build.py <path to Main.dc.html>
+usage: python3 build.py <path to design .dc.html> [sub-folder, e.g. v1]
 
 The design file is a Design-canvas component: an <x-dc> template with {{holes}}, <sc-if>/<sc-for>,
 and a `class Component extends DCLogic` script. This script keeps that markup and logic as-is and
@@ -43,10 +43,14 @@ BLOBS = {
 }
 
 src = Path(sys.argv[1]).read_text()
+OUT = HERE / (sys.argv[2] if len(sys.argv) > 2 else ".")  # optional sub-folder, e.g. v1
+OUT.mkdir(parents=True, exist_ok=True)
+PRE = "" if OUT == HERE else "../"
 (HERE / "assets").mkdir(exist_ok=True)
 for bid, f in BLOBS.items():
     shutil.copy2((CAP / "prod" / f) if f.endswith(".webp") else (CAP / f), HERE / "assets" / f)
-    src = src.replace("/_blob/" + bid, "assets/" + f)
+    src = src.replace("/_blob/" + bid, PRE + "assets/" + f)
+    src = src.replace("B + '" + bid + "'", "'" + PRE + "assets/" + f + "'")  # product photos built in JS
 left = re.findall(r"/_blob/[0-9a-f]+", src)
 assert not left, f"unmapped assets: {set(left)}"
 
@@ -132,5 +136,5 @@ window.__mount(Component, {json.dumps(defaults)});
 </body>
 </html>
 """
-(HERE / "index.html").write_text(html)
-print("wrote", HERE / "index.html", len(html), "bytes;", len(BLOBS), "assets")
+(OUT / "index.html").write_text(html)
+print("wrote", OUT / "index.html", len(html), "bytes;", len(BLOBS), "assets")

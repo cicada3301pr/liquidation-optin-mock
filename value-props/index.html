@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clear Dead Stock · Seller opt-in (mock)</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0;background:#F5F5F7}</style>
+
+</head>
+<body>
+<div id="root"></div>
+<template id="tpl">
+<div style="font-family: Inter, system-ui, sans-serif; color: #1F1F29; background: #F5F5F7; min-height: 100vh; padding: 32px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<h1 style="margin: 0; font-size: 26px; font-weight: 700">What the seller wants, and where the design shows it</h1>
+<p style="margin: 0; font-size: 14px; color: #6B6B7B; max-width: 900px; line-height: 1.5">From the Seller Liquidation Survey (Jun-Jul 2026; P1-P2 offline liquidators n=113, P1-P3 dead-stock reasons n=694) and field LoDs. Each row is one seller expectation, the program feature that answers it, and the variant that leads with it.</p>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #E7E7EC; border-radius: 10px; overflow: hidden">
+<table style="width: 100%; border-collapse: collapse"><thead><tr style="background: #F7F7FA"><th scope="col" style="padding: 10px 12px; text-align: left; font-weight: 700; color: #3D3D4A; font-size: 13px">What the seller wants</th><th scope="col" style="padding: 10px 12px; text-align: left; font-weight: 700; color: #3D3D4A; font-size: 13px">Evidence</th><th scope="col" style="padding: 10px 12px; text-align: left; font-weight: 700; color: #3D3D4A; font-size: 13px">What the program gives</th><th scope="col" style="padding: 10px 12px; text-align: left; font-weight: 700; color: #3D3D4A; font-size: 13px">How the design shows it</th><th scope="col" style="padding: 10px 12px; text-align: left; font-weight: 700; color: #3D3D4A; font-size: 13px">Variants that lead with it</th><th scope="col" style="padding: 10px 12px; text-align: left; font-weight: 700; color: #3D3D4A; font-size: 13px">Status</th></tr></thead><tbody><tr style="border-top: 1px solid #E7E7EC; vertical-align: top"><th scope="row" style="padding: 12px; text-align: left; font-size: 14px; font-weight: 700; width: 17%">Sell the stock: orders, not just a discount</th><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #6B6B7B">36% of P1-P2 offline liquidators: ‘low orders even after discount’. Price or competition is why stock went dead for 50%.</td><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #1F1F29">Clearance tile on Meesho Home for prepaid buyers; discount suggestion per row</td><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #1F1F29">‘More buyers’ card; suggested 50% on each row</td><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #1F1F29">V1, V4, V5</td><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #6B6B7B">Tile reach to be sized</td></tr><tr style="border-top: 1px solid #E7E7EC; vertical-align: top"><th scope="row" style="padding: 12px; text-align: left; font-size: 14px; font-weight: 700; width: 17%">No returns eating the margin</th><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #6B6B7B">31% of offline liquidators: ‘returns too high’</td><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #1F1F29">Prepaid only (no RTO) + Refund Only (no return pickup)</td><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #1F1F29">One ‘No returns, no RTO’ card + How it works</td><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #1F1F29">All</td><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #6B6B7B">Refund Only funding open (D6)</td></tr><tr style="border-top: 1px solid #E7E7EC; vertical-align: top"><th scope="row" style="padding: 12px; text-align: left; font-size: 14px; font-weight: 700; width: 17%">More money than a local buyer</th><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #6B6B7B">44% of P1-P3 clear offline, at 20-35% of cost (LoDs)</td><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #1F1F29">Seller sets the price; sells piece by piece</td><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #1F1F29">Offline vs Meesho comparison; 20-35% benchmark</td><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #1F1F29">V2, V1</td><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #6B6B7B">Untested; recovery rate is a pilot metric</td></tr><tr style="border-top: 1px solid #E7E7EC; vertical-align: top"><th scope="row" style="padding: 12px; text-align: left; font-size: 14px; font-weight: 700; width: 17%">Clear fast, before the season ends</th><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #6B6B7B">37% of P1-P3 say stock went dead because the season or trend ended</td><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #1F1F29">Live next day; 30-day clearance window; day-21 nudge</td><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #1F1F29">Timeline Day 0 / 1 / 21 / 30</td><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #1F1F29">V3</td><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #6B6B7B">Window length open (D10)</td></tr><tr style="border-top: 1px solid #E7E7EC; vertical-align: top"><th scope="row" style="padding: 12px; text-align: left; font-size: 14px; font-weight: 700; width: 17%">A simple tool, no manual work</th><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #6B6B7B">26% of P1-P2 offline liquidators: ‘no dedicated clearance tool’</td><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #1F1F29">Pre-cleared eligible list, bulk discount, bulk upload</td><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #1F1F29">3 steps; ‘No extra work’ card; task-first banner</td><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #1F1F29">V5, V1</td><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #6B6B7B">Built in the page</td></tr><tr style="border-top: 1px solid #E7E7EC; vertical-align: top"><th scope="row" style="padding: 12px; text-align: left; font-size: 14px; font-weight: 700; width: 17%">Know how much is stuck</th><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #6B6B7B">Fashion sellers lock 73-110 days of capital, ~33 in dead stock (LoDs)</td><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #1F1F29">Nightly eligible list per seller</td><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #1F1F29">‘₹X stuck in N units’ hero</td><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #1F1F29">V4</td><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #6B6B7B">Uses listed price, not cost</td></tr><tr style="border-top: 1px solid #E7E7EC; vertical-align: top"><th scope="row" style="padding: 12px; text-align: left; font-size: 14px; font-weight: 700; width: 17%">Cash for new stock</th><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #6B6B7B">18% name over-ordering; reinvestment is learning 3</td><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #1F1F29">Faster cash release vs holding</td><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #1F1F29">Hero line: ‘free up cash for new stock’</td><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #1F1F29">V1, V4</td><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #6B6B7B">Payment cycle unchanged</td></tr><tr style="border-top: 1px solid #E7E7EC; vertical-align: top"><th scope="row" style="padding: 12px; text-align: left; font-size: 14px; font-weight: 700; width: 17%">Stay in control, exit any time</th><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #6B6B7B">Decided 23-Nov: seller exits by setting stock to 0</td><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #1F1F29">Edit inventory on Enrolled tab</td><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #1F1F29">‘Stop any time’ card / chip / FAQ</td><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #1F1F29">V3, V4, V5</td><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #6B6B7B">Decided</td></tr><tr style="border-top: 1px solid #E7E7EC; vertical-align: top"><th scope="row" style="padding: 12px; text-align: left; font-size: 14px; font-weight: 700; width: 17%">Protect my full-price listing</th><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #6B6B7B">Seller must know before confirming (KRD F4)</td><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #1F1F29">Clearance price shows everywhere; price lock 30 days</td><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #1F1F29">‘Before you enrol’ strip; FAQ</td><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #1F1F29">V1, V5</td><td style="padding: 12px; font-size: 13px; line-height: 1.45; color: #6B6B7B">Price lock open (D8)</td></tr></tbody></table>
+</div>
+<h2 style="margin: 8px 0 0; font-size: 18px; font-weight: 700">The five variants</h2>
+<div style="background: #FFFFFF; border: 1px solid #E7E7EC; border-radius: 10px; overflow: hidden">
+<table style="width: 100%; border-collapse: collapse"><thead><tr style="background: #F7F7FA">
+<th scope="col" style="padding: 10px 12px; text-align: left; font-size: 13px">#</th><th scope="col" style="padding: 10px 12px; text-align: left; font-size: 13px">Name</th>
+<th scope="col" style="padding: 10px 12px; text-align: left; font-size: 13px">What changes on the page</th><th scope="col" style="padding: 10px 12px; text-align: left; font-size: 13px">Built for</th></tr></thead>
+<tbody><tr style="border-top: 1px solid #E7E7EC; vertical-align: top"><th scope="row" style="padding: 10px 12px; text-align: left; font-size: 14px; color: #3C29B7">V1</th><td style="padding: 10px 12px; font-size: 14px; font-weight: 700">Seller pains first</td><td style="padding: 10px 12px; font-size: 13px; line-height: 1.45">Three survey pains as the three cards; offline benchmark in hero; ‘Before you enrol’ strip.</td><td style="padding: 10px 12px; font-size: 13px; line-height: 1.45; color: #6B6B7B">First-time seller from a KAM call or WhatsApp</td></tr><tr style="border-top: 1px solid #E7E7EC; vertical-align: top"><th scope="row" style="padding: 10px 12px; text-align: left; font-size: 14px; color: #3C29B7">V2</th><td style="padding: 10px 12px; font-size: 14px; font-weight: 700">Better than offline</td><td style="padding: 10px 12px; font-size: 13px; line-height: 1.45">Side-by-side: local buyer vs Meesho on price, how it sells, returns, speed, payment.</td><td style="padding: 10px 12px; font-size: 13px; line-height: 1.45; color: #6B6B7B">Seller who already dumps offline (44% of P1-P3)</td></tr><tr style="border-top: 1px solid #E7E7EC; vertical-align: top"><th scope="row" style="padding: 10px 12px; text-align: left; font-size: 14px; color: #3C29B7">V3</th><td style="padding: 10px 12px; font-size: 14px; font-weight: 700">Beat the season</td><td style="padding: 10px 12px; font-size: 13px; line-height: 1.45">Speed story with a Day 0 / 1 / 21 / 30 timeline; perks as chips.</td><td style="padding: 10px 12px; font-size: 13px; line-height: 1.45; color: #6B6B7B">Seasonal stock (37% of P1-P3)</td></tr><tr style="border-top: 1px solid #E7E7EC; vertical-align: top"><th scope="row" style="padding: 10px 12px; text-align: left; font-size: 14px; color: #3C29B7">V4</th><td style="padding: 10px 12px; font-size: 14px; font-weight: 700">Your stuck capital</td><td style="padding: 10px 12px; font-size: 13px; line-height: 1.45">Personalised hero: ₹ and units stuck, products that qualify.</td><td style="padding: 10px 12px; font-size: 13px; line-height: 1.45; color: #6B6B7B">Seller who under-counts dead stock; reinvestment story</td></tr><tr style="border-top: 1px solid #E7E7EC; vertical-align: top"><th scope="row" style="padding: 10px 12px; text-align: left; font-size: 14px; color: #3C29B7">V5</th><td style="padding: 10px 12px; font-size: 14px; font-weight: 700">Task first</td><td style="padding: 10px 12px; font-size: 13px; line-height: 1.45">Compact banner, table straight away, common questions below.</td><td style="padding: 10px 12px; font-size: 13px; line-height: 1.45; color: #6B6B7B">Repeat visitor or seller sent by a deep link</td></tr></tbody></table>
+</div>
+<p style="margin: 0; font-size: 12px; color: #6B6B7B">Product table, Enrolled tab and Refund Only explainer are the same in every variant; only the top of the page changes.</p>
+</div>
+</template>
+
+<script>
+(function(){
+class DCLogic { constructor(props){ this.props = props; this.state = {}; }
+  setState(p){ Object.assign(this.state, typeof p === 'function' ? p(this.state) : p); schedule(); } forceUpdate(){ schedule(); } }
+window.DCLogic = DCLogic;
+const HOLE = /\{\{\s*([^}]+?)\s*\}\}/g, WHOLE = /^\s*\{\{\s*([^}]+?)\s*\}\}\s*$/;
+function look(scope, path){ path = path.trim();
+  if (path === 'true') return true; if (path === 'false') return false; if (path === 'null') return null;
+  if (/^-?\d+(\.\d+)?$/.test(path)) return Number(path);
+  return path.split('.').reduce((o, k) => (o == null ? undefined : o[k]), scope); }
+function interp(s, scope){ return s.replace(HOLE, (_, p) => { const v = look(scope, p); return v == null ? '' : String(v); }); }
+const BOOL = new Set(['checked','disabled','selected','readonly']);
+function render(node, scope){
+  if (node.nodeType === 3) return [document.createTextNode(interp(node.nodeValue, scope))];
+  if (node.nodeType !== 1) return [];
+  const tag = node.tagName.toLowerCase();
+  if (tag === 'sc-if') { const v = look(scope, (node.getAttribute('value').match(WHOLE)||[])[1]||'');
+    return v ? kids(node, scope) : []; }
+  const forAttr = tag === 'sc-for' ? node.getAttribute('list') : node.getAttribute('data-for');
+  if (forAttr != null && !node.__inFor) { const list = look(scope, forAttr.match(WHOLE)[1]) || [];
+    const as = tag === 'sc-for' ? node.getAttribute('as') : node.getAttribute('data-as'); const out = [];
+    list.forEach((item, i) => { const s = Object.assign({}, scope, {[as]: item, $index: i});
+      if (tag === 'sc-for') out.push(...kids(node, s)); else { node.__inFor = true; out.push(...render(node, s)); node.__inFor = false; } });
+    return out; }
+  const el = document.createElementNS(node.namespaceURI, node.localName);
+  for (const a of Array.from(node.attributes)) { const n = a.name;
+    if (n.startsWith('hint-') || n === 'data-for' || n === 'data-as') continue;
+    const whole = a.value.match(WHOLE);
+    if (n.startsWith('on')) { const fn = whole && look(scope, whole[1]); if (typeof fn === 'function') {
+        const ev = n.slice(2); el.addEventListener(ev === 'change' && el.type !== 'checkbox' ? 'change' : ev, fn); } continue; }
+    if (whole) { const v = look(scope, whole[1]);
+      if (BOOL.has(n)) { if (v) el.setAttribute(n, ''); el[n] = !!v; continue; }
+      if (n === 'value') { el.setAttribute('value', v == null ? '' : v); continue; }
+      if (v == null || v === false) continue; el.setAttribute(n, String(v)); continue; }
+    el.setAttribute(n, interp(a.value, scope)); }
+  const src = tag === 'template' ? node.content : node;
+  for (const c of Array.from(src.childNodes)) render(c, scope).forEach(k => el.appendChild(k));
+  return [el]; }
+function kids(node, scope){ const out = []; for (const c of Array.from(node.childNodes)) out.push(...render(c, scope)); return out; }
+let comp, root, tpl, pending = false;
+function draw(){ pending = false; const vals = comp.renderVals(); const frag = document.createDocumentFragment();
+  for (const c of Array.from(tpl.content.childNodes)) render(c, vals).forEach(k => frag.appendChild(k));
+  const y = window.scrollY; root.replaceChildren(frag); window.scrollTo(0, y); }
+function schedule(){ if (!pending) { pending = true; setTimeout(draw, 0); } }
+window.__mount = function(Component, props){ tpl = document.getElementById('tpl'); root = document.getElementById('root');
+  comp = new Component(props); draw(); };
+})();
+</script>
+
+<script>
+
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+
+window.__mount(Component, {});
+</script>
+</body>
+</html>
