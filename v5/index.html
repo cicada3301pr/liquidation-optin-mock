@@ -117,8 +117,8 @@ button{font-family:inherit}
 </div>
 </td>
 <td style="padding: 14px 8px">
-<input type="number" min="50" aria-label="{{ r.invLabel }}" value="{{ r.inv }}" onChange="{{ r.setInv }}" style="width: 90px; height: 40px; box-sizing: border-box; border: 1px solid {{ r.invBorder }}; border-radius: 6px; padding: 0 10px; font-size: 14px">
-<div style="font-size: 11px; color: {{ r.invNoteColor }}; margin-top: 4px">{{ r.invNote }}</div>
+<div style="font-size: 14px; font-weight: 600; color: {{ r.invColor }}">{{ r.invFmt }} units</div>
+<div style="font-size: 11px; color: #6B6B7B; margin-top: 4px; max-width: 140px; line-height: 1.35">To change, update stock in the <a href="#" style="color: #3C29B7; font-weight: 600">Inventory tab</a></div>
 </td>
 <td style="padding: 14px 8px">
 <input type="number" min="30" max="90" aria-label="{{ r.discLabel }}" value="{{ r.disc }}" onChange="{{ r.setDisc }}" style="width: 72px; height: 40px; box-sizing: border-box; border: 1px solid {{ r.discBorder }}; border-radius: 6px; padding: 0 10px; font-size: 14px">
@@ -175,7 +175,20 @@ button{font-family:inherit}
 </div>
 </td>
 <td style="padding: 14px 8px">
-<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">{{ e.disc }}% off</span><span style="font-size: 12px; color: #6B6B7B">₹{{ e.buyer }} <s>₹{{ e.price }}</s></span></div>
+<sc-if value="{{ e.editing }}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; gap: 6px; align-items: center; flex-wrap: wrap">
+<input type="number" min="30" max="90" aria-label="{{ e.discLabel }}" value="{{ e.draft }}" onChange="{{ e.setDraft }}" style="width: 64px; height: 36px; box-sizing: border-box; border: 1px solid #CFCFD8; border-radius: 6px; padding: 0 8px; font-size: 14px"><span style="font-size: 13px">%</span>
+<button type="button" onClick="{{ e.save }}" style="height: 36px; padding: 0 12px; border-radius: 6px; border: 0; background: #3C29B7; color: #FFFFFF; font-size: 13px; font-weight: 600; cursor: pointer">Save</button>
+<button type="button" onClick="{{ e.cancel }}" style="height: 36px; padding: 0 10px; border-radius: 6px; border: 1px solid #CFCFD8; background: #FFFFFF; color: #1F1F29; font-size: 13px; cursor: pointer">Cancel</button>
+</div>
+<div style="font-size: 11px; color: #6B6B7B; margin-top: 4px">Minimum 30%</div>
+</sc-if>
+<sc-if value="{{ e.notEditing }}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; gap: 10px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 2px; white-space: nowrap"><span style="font-weight: 600">{{ e.disc }}% off</span><span style="font-size: 12px; color: #6B6B7B">₹{{ e.buyer }} <s>₹{{ e.price }}</s></span></div>
+<button type="button" onClick="{{ e.edit }}" aria-label="{{ e.editLabel }}" style="height: 32px; padding: 0 10px; border-radius: 6px; border: 1px solid #3C29B7; background: #FFFFFF; color: #3C29B7; font-size: 12px; font-weight: 600; cursor: pointer">Edit</button>
+</div>
+</sc-if>
 </td>
 <td style="padding: 14px 8px; min-width: 150px">
 <div style="display: flex; flex-direction: column; gap: 6px">
@@ -188,20 +201,8 @@ button{font-family:inherit}
 <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">{{ e.ret }}%</span><span style="font-size: 11px; color: #6B6B7B">{{ e.retNote }}</span></div>
 </td>
 <td style="padding: 14px 8px">
-<sc-if value="{{ e.editing }}" hint-placeholder-val="{{ false }}">
-<div style="display: flex; gap: 6px; align-items: center; flex-wrap: wrap">
-<input type="number" min="0" aria-label="{{ e.invLabel }}" value="{{ e.draft }}" onChange="{{ e.setDraft }}" style="width: 80px; height: 36px; box-sizing: border-box; border: 1px solid #CFCFD8; border-radius: 6px; padding: 0 8px; font-size: 14px">
-<button type="button" onClick="{{ e.save }}" style="height: 36px; padding: 0 12px; border-radius: 6px; border: 0; background: #3C29B7; color: #FFFFFF; font-size: 13px; font-weight: 600; cursor: pointer">Save</button>
-<button type="button" onClick="{{ e.cancel }}" style="height: 36px; padding: 0 10px; border-radius: 6px; border: 1px solid #CFCFD8; background: #FFFFFF; color: #1F1F29; font-size: 13px; cursor: pointer">Cancel</button>
-</div>
-<div style="font-size: 11px; color: #6B6B7B; margin-top: 4px">Set 0 to stop clearance</div>
-</sc-if>
-<sc-if value="{{ e.notEditing }}" hint-placeholder-val="{{ true }}">
-<div style="display: flex; gap: 10px; align-items: center">
-<span style="font-weight: 600">{{ e.inv }} units</span>
-<button type="button" onClick="{{ e.edit }}" aria-label="{{ e.editLabel }}" style="height: 32px; padding: 0 10px; border-radius: 6px; border: 1px solid #3C29B7; background: #FFFFFF; color: #3C29B7; font-size: 12px; font-weight: 600; cursor: pointer">Edit</button>
-</div>
-</sc-if>
+<div style="font-size: 14px; font-weight: 600">{{ e.inv }} units</div>
+<div style="font-size: 11px; color: #6B6B7B; margin-top: 4px; max-width: 140px; line-height: 1.35">To change, update stock in the <a href="#" style="color: #3C29B7; font-weight: 600">Inventory tab</a></div>
 </td>
 <td style="padding: 14px 16px">
 <span style="display: inline-block; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; background: {{ e.chipBg }}; color: {{ e.chipColor }}">{{ e.status }}</span>
@@ -237,8 +238,8 @@ Select all {{ eligibleCount }} products
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px">
 <div style="background: #F7F7FA; border-radius: 8px; padding: 12px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; font-weight: 700; color: #3C29B7">WHAT IT IS</span><span style="font-size: 13px; line-height: 1.45">If a buyer asks to return, Meesho refunds them and the item is not picked up. No reverse shipping, no damaged stock back.</span></div>
-<div style="background: #F7F7FA; border-radius: 8px; padding: 12px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; font-weight: 700; color: #3C29B7">ON BY ITSELF</span><span style="font-size: 13px; line-height: 1.45">When return shipping (₹{{ rev }} − ₹{{ fwd }} = ₹{{ rfCut }}) costs more than the buyer price.</span></div>
-<div style="background: #F7F7FA; border-radius: 8px; padding: 12px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; font-weight: 700; color: #3C29B7">YOUR CHOICE</span><span style="font-size: 13px; line-height: 1.45">Above ₹{{ rfCut }}, you decide per product. The refund is still paid to the buyer.</span></div>
+<div style="background: #F7F7FA; border-radius: 8px; padding: 12px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; font-weight: 700; color: #3C29B7">YOUR CHOICE</span><span style="font-size: 13px; line-height: 1.45">Off by default. Turn it on for any product you are clearing, using the switch in the table.</span></div>
+<div style="background: #F7F7FA; border-radius: 8px; padding: 12px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; font-weight: 700; color: #3C29B7">WHEN IT PAYS</span><span style="font-size: 13px; line-height: 1.45">When shipping a return back (₹{{ rfCut }}) costs close to or more than what the product sells for.</span></div>
 </div>
 <div style="display: flex; flex-direction: column; gap: 8px">
 <h3 style="margin: 0; font-size: 15px; font-weight: 700">Worked example: two of your products at 50% off</h3>
@@ -360,41 +361,34 @@ class Component extends DCLogic {
     const all = this.base.map((b) => {
       const s = this.state.rows[b.id];
       const disc = Number(s.disc);
-      const inv = Number(s.inv);
+      const inv = b.stock;
       const discOk = disc >= 30 && disc <= 90;
-      const invOk = inv >= 50 && inv <= b.stock;
+      const invOk = inv >= 50;
       const buyer = Math.round(b.price * (1 - (discOk ? disc : 0) / 100));
-      const auto = discOk && cut > buyer;
-      const rfOn = auto || s.rf;
+      const rfOn = !!s.rf;
       const ok = discOk && invOk;
       if (s.sel) { selCount++; if (ok) { selUnits += inv; } else { anyBad = true; } }
-      let rfNote;
-      if (!discOk) rfNote = 'Set a valid discount first';
-      else if (auto) rfNote = 'On automatically: return shipping costs more than ₹' + buyer;
-      else rfNote = s.rf ? 'You turned this on' : 'Optional; turns on by itself below ₹' + cut + ' buyer price';
+      const rfNote = s.rf ? 'On: returns are refunded, nothing comes back' : 'Off: returns come back as usual';
       return {
         name: b.name, pid: b.pid, price: b.price, ret: b.ret, img: b.img,
         selLabel: 'Select ' + b.name + ' ' + b.pid,
         invLabel: 'Units to clear for ' + b.pid,
         discLabel: 'Discount percent for ' + b.pid,
         sel: s.sel, inv: s.inv, disc: s.disc, buyer: buyer,
-        invBorder: invOk ? '#CFCFD8' : '#C0392B',
-        invNote: invOk ? 'In stock ' + b.stock : (inv < 50 ? 'Minimum 50 units' : 'Only ' + b.stock + ' in stock'),
-        invNoteColor: invOk ? '#6B6B7B' : '#B3261E',
+        invFmt: inv.toLocaleString('en-IN'), invColor: invOk ? '#1F1F29' : '#B3261E',
         discBorder: discOk ? '#CFCFD8' : '#C0392B',
         discNote: discOk ? (disc === 50 ? 'Suggested' : ' ') : 'Minimum discount is 30%',
         discNoteColor: discOk ? '#6B6B7B' : '#B3261E',
         rfStr: rfOn ? 'true' : 'false',
-        rfLocked: auto || !discOk,
+        rfLocked: false,
         rfLabel: 'Refund Only for ' + b.pid,
-        rfTrack: rfOn ? (auto ? '#9D93DE' : '#3C29B7') : '#CFCFD8',
+        rfTrack: rfOn ? '#3C29B7' : '#CFCFD8',
         rfJustify: rfOn ? 'flex-end' : 'flex-start',
-        rfCursor: (auto || !discOk) ? 'not-allowed' : 'pointer',
+        rfCursor: 'pointer',
         rfNote: rfNote,
         toggleSel: () => this.upd(b.id, { sel: !s.sel }),
-        setInv: (e) => this.upd(b.id, { inv: e.target.value }),
         setDisc: (e) => this.upd(b.id, { disc: e.target.value }),
-        toggleRf: () => { if (!auto && discOk) this.upd(b.id, { rf: !s.rf }); }
+        toggleRf: () => this.upd(b.id, { rf: !s.rf })
       };
     });
     const nPages = Math.ceil(all.length / PER);
@@ -416,15 +410,15 @@ class Component extends DCLogic {
         sold: e.sold, declared: e.declared, pct: pct, pctWidth: Math.min(pct, 100) + '%',
         ret: e.ret, retNote: e.ret > 10 ? 'Above your usual rate' : 'Within your usual rate',
         inv: e.inv, editing: editing, notEditing: !editing, draft: this.state.draft,
-        invLabel: 'New inventory for ' + e.pid, editLabel: 'Edit inventory for ' + e.pid,
+        discLabel: 'New discount percent for ' + e.pid, editLabel: 'Edit discount for ' + e.pid,
         status: soldOut ? 'Sold out' : 'Live',
         chipBg: soldOut ? '#EEEEF2' : '#E6F4EA', chipColor: soldOut ? '#4A4A57' : '#1E6B35',
-        edit: () => this.setState({ editId: e.id, draft: String(e.inv) }),
+        edit: () => this.setState({ editId: e.id, draft: String(e.disc) }),
         cancel: () => this.setState({ editId: null }),
         setDraft: (ev) => this.setState({ draft: ev.target.value }),
         save: () => {
-          const v = Math.max(0, Math.round(Number(this.state.draft) || 0));
-          const enr = this.state.enr.map((x) => x.id === e.id ? Object.assign({}, x, { inv: v }) : x);
+          const v = Math.min(90, Math.max(30, Math.round(Number(this.state.draft) || 30)));
+          const enr = this.state.enr.map((x) => x.id === e.id ? Object.assign({}, x, { disc: v }) : x);
           this.setState({ enr: enr, editId: null });
         }
       };
@@ -433,15 +427,13 @@ class Component extends DCLogic {
     const stockValue = this.base.reduce((a, b) => a + b.stock * b.price, 0);
     const mkEx = (b) => {
       const buyer = Math.round(b.price * 0.5);
-      const auto = cut > buyer;
-      let from = 50;
-      while (from < 90 && !(cut > Math.round(b.price * (1 - from / 100)))) from++;
+      const worth = cut >= buyer;
       return {
         pid: b.pid, price: b.price, buyer: buyer,
-        verdict: auto ? 'On automatically' : 'Your choice (auto from ' + from + '% off)',
-        note: auto
-          ? 'PID ' + b.pid + ': a return would cost ₹' + cut + ' to ship back, more than the ₹' + buyer + ' sale, so Refund Only switches on and stays locked.'
-          : 'PID ' + b.pid + ': the ₹' + buyer + ' sale is worth more than the ₹' + cut + ' return trip, so you choose; at ' + from + '% off or deeper it switches on by itself.'
+        verdict: worth ? 'Worth turning on' : 'Your call',
+        note: worth
+          ? 'PID ' + b.pid + ': a return would cost ₹' + cut + ' to ship back, more than the ₹' + buyer + ' sale, so refunding without pickup saves money.'
+          : 'PID ' + b.pid + ': the ₹' + buyer + ' sale is worth more than the ₹' + cut + ' return trip; turn it on if you would rather not handle returns.'
       };
     };
     return {
