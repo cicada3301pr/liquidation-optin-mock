@@ -39,12 +39,7 @@ button{font-family:inherit}
 <a href="#" style="display: flex; justify-content: space-between; align-items: center; padding: 8px 6px 8px 16px; color: #E6EBF2; text-decoration: none; min-height: 40px; box-sizing: border-box"><span style="display: flex; align-items: center; gap: 6px"><img src="../assets/1ahl8d6.svg" alt="" width="20" height="20"><span style="font-size: 16px; line-height: 20px">Pricing</span><span style="background: #F43397; color: #FFFFFF; font-size: 12px; line-height: 14px; padding: 0 8px; border-radius: 2px; margin-left: 2px">NEW</span></span><img src="../assets/ge392q.svg" alt="" width="20" height="20" style="transform: rotate(180deg)"></a>
 <a href="#" style="display: flex; justify-content: space-between; align-items: center; padding: 8px 6px 8px 16px; color: #E6EBF2; text-decoration: none; min-height: 40px; box-sizing: border-box"><span style="display: flex; align-items: center; gap: 6px"><img src="../assets/1x022kq.svg" alt="" width="20" height="20"><span style="font-size: 16px; line-height: 20px">Barcoded Packaging</span></span></a>
 <a href="#" style="display: flex; justify-content: space-between; align-items: center; padding: 8px 6px 8px 16px; color: #E6EBF2; text-decoration: none; min-height: 40px; box-sizing: border-box"><span style="display: flex; align-items: center; gap: 6px"><img src="../assets/1siaqm3.svg" alt="" width="20" height="20"><span style="font-size: 16px; line-height: 20px">Claims</span></span></a>
-<div style="border-left: 4px solid #5A5E66"><a href="#" style="display: flex; justify-content: space-between; align-items: center; padding: 8px 16px 8px 12px; background: #5A5E66; color: #E6EBF2; text-decoration: none; min-height: 40px; box-sizing: border-box"><span style="display: flex; align-items: center; gap: 6px"><img src="../assets/1dnxc99.svg" alt="" width="20" height="20"><span style="font-size: 16px; line-height: 20px; font-weight: 600">Inventory</span></span><img src="../assets/ge392q.svg" alt="" width="20" height="20"></a></div>
-<div style="position: relative">
-<span aria-hidden="true" style="position: absolute; left: 20px; top: 0; bottom: 20px; border-left: 1px solid #8E96A3"></span>
-<a href="#" style="position: relative; display: flex; align-items: center; height: 40px; padding: 0 20px 0 40px; border-top: 1px solid #272829; background: #272829; color: #E6EBF2; text-decoration: none; font-size: 14px; font-weight: 600">Manage Inventory</a>
-<a href="#" aria-current="page" style="position: relative; display: flex; align-items: center; height: 40px; padding: 0 20px 0 40px; border-top: 1px solid #272829; background: #5A5E66; color: #E6EBF2; text-decoration: none; font-size: 14px; font-weight: 600">Clear Dead Stock<img src="../assets/1iqruge.svg" alt="" width="33" height="20" style="position: absolute; right: 2px"></a>
-</div>
+<div style="border-left: 4px solid #5A5E66"><a href="#" aria-current="page" style="display: flex; justify-content: space-between; align-items: center; padding: 8px 16px 8px 12px; background: #5A5E66; color: #E6EBF2; text-decoration: none; min-height: 40px; box-sizing: border-box"><span style="display: flex; align-items: center; gap: 6px"><img src="../assets/1dnxc99.svg" alt="" width="20" height="20"><span style="font-size: 16px; line-height: 20px; font-weight: 600">Inventory</span></span></a></div>
 <a href="#" style="display: flex; justify-content: space-between; align-items: center; padding: 8px 6px 8px 16px; color: #E6EBF2; text-decoration: none; min-height: 40px; box-sizing: border-box"><span style="display: flex; align-items: center; gap: 6px"><img src="../assets/rsiub6.svg" alt="" width="20" height="20"><span style="font-size: 16px; line-height: 20px">Catalog Uploads</span></span></a>
 <a href="#" style="display: flex; justify-content: space-between; align-items: center; padding: 8px 6px 8px 16px; color: #E6EBF2; text-decoration: none; min-height: 40px; box-sizing: border-box"><span style="display: flex; align-items: center; gap: 6px"><img src="../assets/v77nek.svg" alt="" width="20" height="20"><span style="font-size: 16px; line-height: 20px">Image Bulk Upload</span></span></a>
 <a href="#" style="display: flex; justify-content: space-between; align-items: center; padding: 8px 6px 8px 16px; color: #E6EBF2; text-decoration: none; min-height: 40px; box-sizing: border-box"><span style="display: flex; align-items: center; gap: 6px"><img src="../assets/yskyzy.svg" alt="" width="20" height="20"><span style="font-size: 16px; line-height: 20px">Quality</span></span></a>
@@ -66,10 +61,36 @@ button{font-family:inherit}
 
 <main style="flex: 999 1 560px; min-width: 0; padding: 20px 24px 24px; box-sizing: border-box; display: flex; flex-direction: column; gap: 16px">
 
-<div style="display: flex; flex-direction: column; gap: 4px">
-<span style="font-size: 12px; color: #6B6B7B">Inventory <span aria-hidden="true">›</span> Clear Dead Stock</span>
-<h1 style="margin: 0; font-size: 24px; font-weight: 700">Clear Dead Stock</h1>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<h1 style="margin: 0; font-size: 24px; font-weight: 700">Inventory</h1>
+<div role="tablist" aria-label="Inventory" style="display: flex; gap: 28px; border-bottom: 1px solid #DCDCE3">
+<button type="button" role="tab" aria-selected="{{ manSel }}" onClick="{{ goManage }}" style="min-height: 44px; background: none; border: 0; border-bottom: 3px solid {{ manLine }}; color: {{ manColor }}; font-size: 16px; font-weight: 700; padding: 0 2px; cursor: pointer; display: flex; align-items: center; gap: 8px">Manage Inventory</button>
+<button type="button" role="tab" aria-selected="{{ deadSel }}" onClick="{{ goDead }}" style="min-height: 44px; background: none; border: 0; border-bottom: 3px solid {{ deadLine }}; color: {{ deadColor }}; font-size: 16px; font-weight: 700; padding: 0 2px; cursor: pointer; display: flex; align-items: center; gap: 8px">Clear Dead Stock<span style="background: #F43397; color: #FFFFFF; font-size: 11px; line-height: 14px; padding: 1px 6px; border-radius: 2px; font-weight: 700">NEW</span></button>
 </div>
+</div>
+
+<sc-if value="{{ onManage }}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; gap: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap; background: #FCEFF7; border: 1px solid #F3C4DF; border-radius: 10px; padding: 14px 18px">
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 700; color: #570A57">{{ deadCount }} products have stopped selling</span><span style="font-size: 13px; color: #6B6B7B">{{ deadUnits }} units sitting in your warehouse. Clear them at a price you set.</span></div>
+<button type="button" onClick="{{ goDead }}" style="height: 40px; padding: 0 18px; border-radius: 6px; border: 0; background: #570A57; color: #FFFFFF; font-size: 14px; font-weight: 700; cursor: pointer">Clear Dead Stock</button>
+</div>
+<section style="background: #FFFFFF; border: 1px solid #E7E7EC; border-radius: 10px; overflow-x: auto">
+<table style="width: 100%; border-collapse: collapse; font-size: 14px; min-width: 640px">
+<thead><tr style="background: #F7F7FA; text-align: left; color: #6B6B7B; font-size: 13px"><th scope="col" style="padding: 10px 16px; font-weight: 600">Product</th><th scope="col" style="padding: 10px 8px; font-weight: 600">Meesho price</th><th scope="col" style="padding: 10px 8px; font-weight: 600">Current stock</th><th scope="col" style="padding: 10px 8px; font-weight: 600">Status</th></tr></thead>
+<tbody>
+<tr data-for="{{ invRows }}" data-as="m" style="border-top: 1px solid #EEEEF2">
+<td style="padding: 10px 16px"><div style="display: flex; gap: 10px; align-items: center"><img src="{{ m.img }}" alt="" width="40" height="52" style="border-radius: 4px; object-fit: cover; flex: none"><div style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">{{ m.name }}</span><span style="font-size: 12px; color: #6B6B7B">PID {{ m.pid }}</span></div></div></td>
+<td style="padding: 10px 8px">₹{{ m.price }}</td>
+<td style="padding: 10px 8px"><input type="number" min="0" aria-label="{{ m.stockLabel }}" value="{{ m.stock }}" onChange="{{ m.setStock }}" style="width: 96px; height: 38px; box-sizing: border-box; border: 1px solid #CFCFD8; border-radius: 6px; padding: 0 10px; font-size: 14px"></td>
+<td style="padding: 10px 8px"><span style="display: inline-block; background: #FCEFF7; color: #8A1A6B; font-size: 12px; font-weight: 600; padding: 3px 8px; border-radius: 999px">Not selling · clear it</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<p style="margin: 0; font-size: 12px; color: #6B6B7B">Stock changes here show up in Clear Dead Stock straight away. Mock list: only the products eligible for clearance are shown.</p>
+</sc-if>
+
+<sc-if value="{{ onDead }}" hint-placeholder-val="{{ true }}">
 
 <section style="background: #570A57; color: #FFFFFF; border-radius: 12px; padding: 24px 28px; display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between"><div style="flex: 1 1 460px; display: flex; flex-direction: column; gap: 12px"><h2 style="margin: 0; font-size: 26px; line-height: 1.2; font-weight: 700">Clear dead stock, free up cash for new stock</h2><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #F6DDF2">Stock that stopped selling? Clear it on Meesho in a few minutes, without the returns.</p><ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px"><li style="display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.12); border-radius: 999px; padding: 6px 12px 6px 6px; font-size: 13px"><span style="width: 22px; height: 22px; border-radius: 999px; background: #FFFFFF; color: #570A57; font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: 12px">1</span>Pick products</li><li style="display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.12); border-radius: 999px; padding: 6px 12px 6px 6px; font-size: 13px"><span style="width: 22px; height: 22px; border-radius: 999px; background: #FFFFFF; color: #570A57; font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: 12px">2</span>Set discount</li><li style="display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.12); border-radius: 999px; padding: 6px 12px 6px 6px; font-size: 13px"><span style="width: 22px; height: 22px; border-radius: 999px; background: #FFFFFF; color: #570A57; font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: 12px">3</span>Get paid, buy new stock</li></ol></div><div style="flex: 0 1 260px; background: #FFFFFF; color: #570A57; border-radius: 10px; padding: 16px 18px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; font-weight: 600; color: #6B6B7B">What local buyers usually pay</span><span style="font-size: 24px; font-weight: 700; line-height: 1.2">20-35% of cost</span></div></section>
 
@@ -120,7 +141,7 @@ button{font-family:inherit}
 </td>
 <td style="padding: 14px 8px">
 <div style="font-size: 14px; font-weight: 600; color: {{ r.invColor }}">{{ r.invFmt }} units</div>
-<div style="font-size: 11px; color: #6B6B7B; margin-top: 4px; max-width: 140px; line-height: 1.35">To change, update stock in <a href="#" style="color: #3C29B7; font-weight: 600">Manage Inventory</a></div>
+<div style="font-size: 11px; color: #6B6B7B; margin-top: 4px; max-width: 140px; line-height: 1.35">To change, update stock in <button type="button" onClick="{{ goManage }}" style="background: none; border: 0; padding: 0; color: #3C29B7; font-weight: 600; font-size: 11px; text-decoration: underline; cursor: pointer">Manage Inventory</button></div>
 </td>
 <td style="padding: 14px 8px">
 <input type="number" min="30" max="90" aria-label="{{ r.discLabel }}" value="{{ r.disc }}" onChange="{{ r.setDisc }}" style="width: 72px; height: 40px; box-sizing: border-box; border: 1px solid {{ r.discBorder }}; border-radius: 6px; padding: 0 10px; font-size: 14px">
@@ -204,7 +225,7 @@ button{font-family:inherit}
 </td>
 <td style="padding: 14px 8px">
 <div style="font-size: 14px; font-weight: 600">{{ e.inv }} units</div>
-<div style="font-size: 11px; color: #6B6B7B; margin-top: 4px; max-width: 140px; line-height: 1.35">To change, update stock in <a href="#" style="color: #3C29B7; font-weight: 600">Manage Inventory</a></div>
+<div style="font-size: 11px; color: #6B6B7B; margin-top: 4px; max-width: 140px; line-height: 1.35">To change, update stock in <button type="button" onClick="{{ goManage }}" style="background: none; border: 0; padding: 0; color: #3C29B7; font-weight: 600; font-size: 11px; text-decoration: underline; cursor: pointer">Manage Inventory</button></div>
 </td>
 <td style="padding: 14px 16px">
 <span style="display: inline-block; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; background: {{ e.chipBg }}; color: {{ e.chipColor }}">{{ e.status }}</span>
@@ -261,6 +282,7 @@ Select all {{ eligibleCount }} products
 </div>
 </sc-if>
 
+</sc-if>
 </main>
 </div>
 </template>
@@ -338,19 +360,20 @@ class Component extends DCLogic {
       { id: 'p15', name: 'Pretty, Printed Georgette Saree with Blouse Piece', pid: '52711179', price: 207, stock: 243, ret: 8, img: '../assets/c23a92e5a955.webp' }
     ];
     const rows = {};
-    this.base.forEach((b) => { rows[b.id] = { disc: 50, inv: b.stock, rf: false, sel: true }; });
+    this.base.forEach((b) => { rows[b.id] = { disc: 50, inv: 0, rf: false, sel: true }; });
     const enr = [
       { id: 'e1', name: 'Festive Wear Satin Saree with Blouse Piece', pid: '264254709', price: 216, disc: 50, declared: 354, sold: 142, inv: 212, ret: 6.3, days: 12, img: '../assets/775f210223a2.webp' },
       { id: 'e2', name: 'Pretty, Printed Georgette Saree with Blouse Piece', pid: '50148094', price: 216, disc: 45, declared: 322, sold: 61, inv: 261, ret: 9.8, days: 9, img: '../assets/1ee9b9644ac5.webp' },
       { id: 'e3', name: 'Urbane Designer Women Ethnic Skirt', pid: '137649209', price: 216, disc: 55, declared: 92, sold: 92, inv: 0, ret: 4.3, days: 21, img: '../assets/7de3b2f0a42c.webp' }
     ];
-    this.state = { rows: rows, bulk: 50, tab: 'opt', page: 0, enr: enr, editId: null, draft: '' };
+    this.state = { rows: rows, bulk: 50, tab: 'opt', pg: 'dead', stk: {}, page: 0, enr: enr, editId: null, draft: '' };
   }
   upd(id, patch) {
     const rows = Object.assign({}, this.state.rows);
     rows[id] = Object.assign({}, rows[id], patch);
     this.setState({ rows: rows });
   }
+  stk(b) { const o = this.state.stk || {}; return o[b.id] != null ? o[b.id] : b.stock; }
   renderVals() {
     const fwd = this.props.forwardShipping ?? 60;
     const rev = this.props.reverseShipping ?? 157;
@@ -361,7 +384,7 @@ class Component extends DCLogic {
     const all = this.base.map((b) => {
       const s = this.state.rows[b.id];
       const disc = Number(s.disc);
-      const inv = b.stock;
+      const inv = this.stk(b);
       const discOk = disc >= 30 && disc <= 90;
       const invOk = inv >= 50;
       const buyer = Math.round(b.price * (1 - (discOk ? disc : 0) / 100));
@@ -424,7 +447,7 @@ class Component extends DCLogic {
       };
     });
     const isOpt = this.state.tab === 'opt';
-    const stockValue = this.base.reduce((a, b) => a + b.stock * b.price, 0);
+    const stockValue = this.base.reduce((a, b) => a + this.stk(b) * b.price, 0);
     const mkEx = (b) => {
       const buyer = Math.round(b.price * 0.5);
       const worth = cut >= buyer;
@@ -438,7 +461,20 @@ class Component extends DCLogic {
     };
     return {
       heroValue: inr(stockValue),
-      totalUnits: this.base.reduce((a, b) => a + b.stock, 0).toLocaleString('en-IN'),
+      onManage: this.state.pg === 'man', onDead: this.state.pg !== 'man',
+      manSel: this.state.pg === 'man' ? 'true' : 'false', deadSel: this.state.pg === 'man' ? 'false' : 'true',
+      manLine: this.state.pg === 'man' ? '#3C29B7' : 'transparent', deadLine: this.state.pg === 'man' ? 'transparent' : '#3C29B7',
+      manColor: this.state.pg === 'man' ? '#3C29B7' : '#6B6B7B', deadColor: this.state.pg === 'man' ? '#6B6B7B' : '#3C29B7',
+      goManage: () => { this.setState({ pg: 'man' }); window.scrollTo(0, 0); },
+      goDead: () => { this.setState({ pg: 'dead' }); window.scrollTo(0, 0); },
+      deadCount: this.base.length,
+      deadUnits: this.base.reduce((a, b) => a + this.stk(b), 0).toLocaleString('en-IN'),
+      invRows: this.base.map((b) => ({
+        id: b.id, name: b.name, pid: b.pid, img: b.img, price: b.price, stock: this.stk(b),
+        stockLabel: 'Stock for ' + b.pid,
+        setStock: (e) => { const v = Math.max(0, Math.round(Number(e.target.value) || 0)); this.setState({ stk: Object.assign({}, this.state.stk || {}, { [b.id]: v }) }); }
+      })),
+      totalUnits: this.base.reduce((a, b) => a + this.stk(b), 0).toLocaleString('en-IN'),
       rfOpen: !!this.state.rfOpen,
       openRf: () => this.setState({ rfOpen: true }),
       closeRf: () => this.setState({ rfOpen: false }),
